@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+import 'package:task_ivalley/model/getAllAdvertisment_model.dart';
+import 'package:task_ivalley/service/search_service.dart';
 
 class GeneralSearchController extends ChangeNotifier {
+  List<GetAllAdvertismentModel> searchModel = [];
+
   bool isSearching = false;
   bool isEmpty = true;
 
-  TextEditingController serachC = TextEditingController();
-
-  int selectedCategoryId = 7;
+  TextEditingController searchController = TextEditingController();
 
   bool isLoadingMore = false;
   int currentPage = 1;
@@ -24,7 +26,7 @@ class GeneralSearchController extends ChangeNotifier {
 
         if (currentPage <= totalPages) {
           if (!isLoadingMore) {
-            // await searchByCatAndKeyLoadMore();
+            await searchByKeyLoadMore();
             print("EndDDDDDDDDDDDDDDDDDDDDDDDD");
           }
         }
@@ -52,8 +54,34 @@ class GeneralSearchController extends ChangeNotifier {
     notifyListeners();
   }
 
-  updateIsEmpty(bool newStatus) {
-    isEmpty = newStatus;
-    // notifyListeners();
+  Future<List<GetAllAdvertismentModel>> searchByKey() async {
+    isSearching = true;
+    currentPage = 1;
+    searchModel = await SearchService().searchByKey(
+        RowsOfPage: 10,
+        KeyName: searchController.text,
+        PageNumber: currentPage);
+
+    isSearching = false;
+    notifyListeners();
+    return searchModel;
+  }
+
+  Future<List<GetAllAdvertismentModel>> searchByKeyLoadMore() async {
+    isSearching = true;
+    isLoadingMore = true;
+    currentPage = currentPage + 1;
+
+    List<GetAllAdvertismentModel> newData = await SearchService().searchByKey(
+        RowsOfPage: 10,
+        KeyName: searchController.text,
+        PageNumber: currentPage);
+
+    searchModel.addAll(newData);
+
+    isLoadingMore = false;
+    isSearching = false;
+    notifyListeners();
+    return searchModel;
   }
 }

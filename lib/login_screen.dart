@@ -90,7 +90,7 @@ class LoginScreen extends StatelessWidget {
                                           color: Colors.grey,
                                         ),
                                 ),
-                                padding: EdgeInsets.symmetric(vertical: 6),
+                                
                               ),
                             ),
                             SizedBox(

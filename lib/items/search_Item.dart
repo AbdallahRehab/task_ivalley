@@ -53,90 +53,80 @@ class SearchItem extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          Expanded(
+                          const Expanded(
                             child: Text(
-                              'سوزوكي',
+                              ' سوزوكي 2022',
                               style: TextStyle(
-                                  color: Colors.black87, fontSize: 11.sp),
+                                  color: Colors.black87, fontSize: 14),
+                              overflow: TextOverflow.ellipsis,
                             ),
                           ),
                           Expanded(
-                            child: Text(
-                              '${"Order_ID"} : 22',
-                              style: TextStyle(
-                                  color: Colors.black87, fontSize: 11.sp),
+                            child: Row(
+                              children: [
+                                Text(
+                                   '42500.0 ريال',
+                                  style: TextStyle(
+                                      color: Colors.orange[500], fontSize: 12),
+                                ),
+                                SizedBox(width: 5),
+                                const Text(
+                                  '(بعد الضريبه)',
+                                  style: TextStyle(
+                                      color: Colors.black87, fontSize: 10),
+                                ),
+                              ],
                             ),
                           ),
                         ],
                       ),
                       Text(
-                        "productName",
+                        "سزوكي ديزاير",
                         style: TextStyle(
-                            fontSize: 12.sp,
+                            fontSize: 14,
                             fontWeight: FontWeight.bold,
-                            color: Colors.black87),
+                            color: Colors.green[600]),
                       ),
                       Text(
-                        ' ${"Reservation_date"} :',
+                        ' سعودي نيو كار لشراء سيارة سزوكي ديزاير',
                         style: TextStyle(
-                          color: Colors.black87,
-                          fontSize: 11.sp,
+                          color: Colors.grey,
+                          fontSize: 12,
                         ),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
                       ),
-                      Text(
-                        '4545',
-                        style: TextStyle(
-                          color: Colors.black87,
-                          fontSize: 11.sp,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 5,
-                      ),
+
                       Row(
-                        mainAxisAlignment:
-                        MainAxisAlignment.spaceBetween,
+
                         children: [
+                          Icon(Icons.location_on_outlined,
+                              size: 20,
+                              color:Colors.red[500] ),
+                          SizedBox(width: 5),
                           Text(
-                            "price : 122",
+                            "الرياض",
                             style: TextStyle(
-                                color: Colors.red,
-                                fontSize: 12.sp,
+                                color: Colors.black,
+                                fontSize: 14,
                                 fontWeight: FontWeight.w700),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 8.0),
-                            child: Row(
-                              children: [
-                                Container(
-                                  width: 22.w,
-                                  decoration: BoxDecoration(
-                                      borderRadius:
-                                      BorderRadius.all(
-                                          Radius.circular(10)),
-                                      border: Border.all(
-                                          color:
-                                          Colors.grey.shade300,
-                                          width: 1)),
-                                  child: Padding(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: 4.sp,
-                                        vertical: 4),
-                                    child: Center(
-                                        child: Text(
-                                          "view",
-                                          style: TextStyle(
-                                              color: Colors.grey,
-                                              fontSize: 11.sp,
-                                              fontWeight:
-                                              FontWeight.bold),
-                                        )),
-                                  ),
-                                ),
-                              ],
-                            ),
+
+                          SizedBox(width: 5),
+                          Text(
+                            "|",
+                            style: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w700),
+                          ),
+                          SizedBox(width: 5),
+                          Text(
+                            "منذ 104 يوم و 7 ساعات",
+                            style: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w700),
                           ),
                         ],
                       ),
