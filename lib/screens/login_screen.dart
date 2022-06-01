@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 import 'package:task_ivalley/screens/bottomNavigationBar_screen.dart';
@@ -153,7 +154,23 @@ class LoginScreen extends StatelessWidget {
                               width: 70.w,
                               height: 50,
                               child: ElevatedButton.icon(
-                                  onPressed: () {},
+                                  onPressed: () async {
+
+                                      await FacebookAuth.instance.logOut();
+                                      final LoginResult result = await FacebookAuth
+                                          .instance.login();
+                                      if (result.status ==
+                                      LoginStatus.success) {
+                                        final accessToken = result.accessToken;
+                                        final userData = await FacebookAuth
+                                            .instance.getUserData();
+                                        print('FFFFFace :: ${userData.toString()}');
+                                        if (userData != null) {
+                                          print('AAAAAAAAA :: ${userData['id']}');
+                                          ToastM.show(userData.toString());
+                                        }
+                                      }
+                                  },
                                   icon: const Icon(Icons.facebook_outlined),
                                   label: const Text("فيسبوك")),
                             ),
