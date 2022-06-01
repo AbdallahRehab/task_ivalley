@@ -90,7 +90,6 @@ class LoginScreen extends StatelessWidget {
                                           color: Colors.grey,
                                         ),
                                 ),
-                                
                               ),
                             ),
                             SizedBox(
@@ -124,10 +123,11 @@ class LoginScreen extends StatelessWidget {
                                       model.passwordController.text
                                           .trim()
                                           .isEmpty) {
-                                    ToastM.show(
-                                        "الايميل او الرقم السري فارغ");
+                                    ToastM.show("الايميل او الرقم السري فارغ");
                                   } else {
-                                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => const BottomNavigationBarScreen()));
+                                    Navigator.of(context).push(MaterialPageRoute(
+                                        builder: (context) =>
+                                            const BottomNavigationBarScreen()));
                                   }
                                 },
                               ),
