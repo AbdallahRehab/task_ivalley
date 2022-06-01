@@ -1,4 +1,9 @@
 class ApiRoutes {
+
+
+  static String URL =
+      "https://api.saudinewcar.com:442";
+
   static String search =
-      "https://api.saudinewcar.com:442/GeneralSearch/GetAllAdvertisment";
+      URL+"/GeneralSearch/GetAllAdvertisment";
 }

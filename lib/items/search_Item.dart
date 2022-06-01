@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+import 'package:task_ivalley/utils/api_routes.dart';
 import 'package:task_ivalley/widgets/ImageWidget.dart';
+import 'package:task_ivalley/model/getAllAdvertisment_model.dart';
 
 class SearchItem extends StatelessWidget {
   final Function onclick;
+  final GetAllAdvertismentModel searchItemData;
 
   SearchItem({
     Key? key,
     required this.onclick,
+    required this.searchItemData,
   }) : super(key: key);
 
   @override
@@ -41,21 +45,21 @@ class SearchItem extends StatelessWidget {
                       child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: ImageWidget(
-                            "https://dwq8ksvud9smv.cloudfront.net/Seller/Logo-evq57v84r.jpg",
-                            width: 22.w,
-                            height: 15.h,
+                            ApiRoutes.URL+searchItemData.mainImagePath.toString(),
+                            width: 25.w,
+                            height: 14.h,
                           ))),
                 ),
                 Expanded(
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
                         children: [
-                          const Expanded(
+                           Expanded(
                             child: Text(
-                              ' سوزوكي 2022',
+                              '${searchItemData.brandName!} ${searchItemData.model!} ',
                               style: TextStyle(
                                   color: Colors.black87, fontSize: 14),
                               overflow: TextOverflow.ellipsis,
@@ -65,7 +69,7 @@ class SearchItem extends StatelessWidget {
                             child: Row(
                               children: [
                                 Text(
-                                   '42500.0 ريال',
+                                   '${searchItemData.price!} ريال',
                                   style: TextStyle(
                                       color: Colors.orange[500], fontSize: 12),
                                 ),
@@ -80,15 +84,17 @@ class SearchItem extends StatelessWidget {
                           ),
                         ],
                       ),
+                      SizedBox(height: 4,),
                       Text(
-                        "سزوكي ديزاير",
+                        searchItemData.mainTitle.toString(),
                         style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
                             color: Colors.green[600]),
                       ),
+                      SizedBox(height: 4,),
                       Text(
-                        ' سعودي نيو كار لشراء سيارة سزوكي ديزاير',
+                        searchItemData.description.toString(),
                         style: TextStyle(
                           color: Colors.grey,
                           fontSize: 12,
@@ -96,7 +102,7 @@ class SearchItem extends StatelessWidget {
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),
-
+                      SizedBox(height: 4,),
                       Row(
 
                         children: [
@@ -105,7 +111,7 @@ class SearchItem extends StatelessWidget {
                               color:Colors.red[500] ),
                           SizedBox(width: 5),
                           Text(
-                            "الرياض",
+                            searchItemData.cityName.toString(),
                             style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 14,
@@ -122,7 +128,7 @@ class SearchItem extends StatelessWidget {
                           ),
                           SizedBox(width: 5),
                           Text(
-                            "منذ 104 يوم و 7 ساعات",
+                            "منذ ${searchItemData.hours} ساعات و ${searchItemData.minuts} دقيقه",
                             style: TextStyle(
                                 color: Colors.grey,
                                 fontSize: 12,

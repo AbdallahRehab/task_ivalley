@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:sizer/sizer.dart';
-import 'package:task_ivalley/login_screen.dart';
+import 'package:task_ivalley/screens/login_screen.dart';
 
 void main() {
   runApp(const MyApp());

@@ -26,7 +26,7 @@ class GeneralSearchController extends ChangeNotifier {
 
         if (currentPage <= totalPages) {
           if (!isLoadingMore) {
-            await searchByKeyLoadMore();
+            searchModel.isNotEmpty ? await searchByKeyLoadMore() : null;
             print("EndDDDDDDDDDDDDDDDDDDDDDDDD");
           }
         }
@@ -57,6 +57,7 @@ class GeneralSearchController extends ChangeNotifier {
   Future<List<GetAllAdvertismentModel>> searchByKey() async {
     isSearching = true;
     currentPage = 1;
+    searchModel = [];
     searchModel = await SearchService().searchByKey(
         RowsOfPage: 10,
         KeyName: searchController.text,
@@ -69,7 +70,7 @@ class GeneralSearchController extends ChangeNotifier {
 
   Future<List<GetAllAdvertismentModel>> searchByKeyLoadMore() async {
     isSearching = true;
-    isLoadingMore = true;
+    updateLoadingMore(true);
     currentPage = currentPage + 1;
 
     List<GetAllAdvertismentModel> newData = await SearchService().searchByKey(
@@ -79,7 +80,8 @@ class GeneralSearchController extends ChangeNotifier {
 
     searchModel.addAll(newData);
 
-    isLoadingMore = false;
+
+    updateLoadingMore(false);
     isSearching = false;
     notifyListeners();
     return searchModel;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task_ivalley/generalSearch_screen.dart';
+import 'package:task_ivalley/screens/generalSearch_screen.dart';
 
 
 class BottomNavigationBarScreen extends StatefulWidget {
@@ -32,24 +32,25 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
       appBar: AppBar(
         leading: pageIndex==2?Icon(
           Icons.arrow_back,
-          color: Theme.of(context).primaryColor,
+          color: Colors.white,
         ):null,
         title: Text(
           pagesTitels[pageIndex],
           style: TextStyle(
-            color: Theme.of(context).primaryColor,
+            color: Colors.white,
             fontSize: 25,
             fontWeight: FontWeight.w600,
           ),
         ),
         centerTitle: true,
-        backgroundColor: Colors.white,
-        actionsIconTheme: const IconThemeData(color: Colors.blue),
+        backgroundColor: Color(0xFF193052),
+        actionsIconTheme: const IconThemeData(color: Colors.white),
         actions:  const [
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 8.0),
             child: Icon(
               Icons.menu,
+
             ),
           )
         ],
@@ -63,7 +64,15 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
     return Container(
       height: 75,
       decoration: BoxDecoration(
-        color: Theme.of(context).primaryColor,
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.shade500,
+            spreadRadius: 1,
+            blurRadius: 5,
+            offset: Offset(0, 3), // changes position of shadow
+          ),
+        ],
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(20),
           topRight: Radius.circular(20),
@@ -86,17 +95,17 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
                 icon: pageIndex == 0
                     ? const Icon(
                   Icons.car_crash_outlined,
-                  color: Colors.white,
-                  size: 35,
+                  color: Color(0xFF193052),
+                  size: 30,
                 )
                     : const Icon(
                   Icons.car_crash_outlined,
-                  color: Colors.white,
-                  size: 35,
+                  color: Color(0xFFab2636),
+                  size: 30,
                 ),
               ),
               Text(pagesTitels[0],style: TextStyle(color:pageIndex == 0
-                  ? Colors.white:Colors.grey),)
+                  ? Color(0xFF193052):Color(0xFFab2636)),)
             ],
           ),
           Column(
@@ -113,17 +122,17 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
                 icon: pageIndex == 1
                     ? const Icon(
                   Icons.calendar_today,
-                  color: Colors.white,
-                  size: 35,
+                  color: Color(0xFF193052),
+                  size: 30,
                 )
                     : const Icon(
                   Icons.calendar_today,
-                  color: Colors.white,
-                  size: 35,
+                  color: Color(0xFFab2636),
+                  size: 30,
                 ),
               ),
               Text(pagesTitels[1],style: TextStyle(color:pageIndex == 1
-                  ? Colors.white:Colors.grey),)
+                  ? Color(0xFF193052):Color(0xFFab2636)),)
             ],
           ),
           Column(
@@ -140,17 +149,17 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
                 icon: pageIndex == 2
                     ? const Icon(
                   Icons.search,
-                  color: Colors.white,
-                  size: 35,
+                  color: Color(0xFF193052),
+                  size: 30,
                 )
                     : const Icon(
                   Icons.search,
-                  color: Colors.white,
-                  size: 35,
+                  color: Color(0xFFab2636),
+                  size: 30,
                 ),
               ),
               Text(pagesTitels[2],style: TextStyle(color:pageIndex == 2
-                  ? Colors.white:Colors.grey),)
+                  ? Color(0xFF193052):Color(0xFFab2636)),)
             ],
           ),
           Column(
@@ -167,17 +176,17 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
                 icon: pageIndex == 3
                     ? const Icon(
                   Icons.add_circle_outline,
-                  color: Colors.white,
-                  size: 35,
+                  color: Color(0xFF193052),
+                  size: 30,
                 )
                     : const Icon(
                   Icons.add_circle_outline,
-                  color: Colors.white,
-                  size: 35,
+                  color: Color(0xFFab2636),
+                  size: 30,
                 ),
               ),
               Text(pagesTitels[3],style: TextStyle(color:pageIndex == 3
-                  ? Colors.white:Colors.grey),)
+                  ? Color(0xFF193052):Color(0xFFab2636)),)
             ],
           ),
         ],

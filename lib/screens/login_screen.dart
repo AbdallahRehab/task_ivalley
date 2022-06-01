@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
-import 'package:task_ivalley/bottomNavigationBar_screen.dart';
+import 'package:task_ivalley/screens/bottomNavigationBar_screen.dart';
 import 'package:task_ivalley/controllers/login_controller.dart';
 import 'package:task_ivalley/utils/AssetsRoutes.dart';
 import 'package:task_ivalley/widgets/TextFieldWidget.dart';
@@ -16,7 +16,7 @@ class LoginScreen extends StatelessWidget {
           builder: (context, model, child) => Scaffold(
                 appBar: AppBar(
                   title: Text(
-                    "Sign In",
+                    "تسجيل الدخول",
                     style: TextStyle(color: Colors.black, fontSize: 17.sp),
                   ),
                   centerTitle: true,
@@ -57,7 +57,7 @@ class LoginScreen extends StatelessWidget {
                                 controller: model.emailController,
                                 textInputType: TextInputType.emailAddress,
                                 onChangeText: (v) {},
-                                hintText: ("Email"),
+                                hintText: ("البريد الالكتروني"),
                                 suffixIcon: const Icon(Icons.email_outlined),
                                 padding:
                                     const EdgeInsets.symmetric(vertical: 6),
@@ -74,7 +74,7 @@ class LoginScreen extends StatelessWidget {
                                 controller: model.passwordController,
                                 textInputType: TextInputType.text,
                                 onChangeText: (v) {},
-                                hintText: ("Password"),
+                                hintText: ("الرقم السر"),
                                 isInputPassword: !model.isShow,
                                 suffixIcon: GestureDetector(
                                   onTap: () {
@@ -110,7 +110,7 @@ class LoginScreen extends StatelessWidget {
                                   ),
                                   alignment: Alignment.center,
                                   child: Text(
-                                    "Login",
+                                    "تسجيل الدخول",
                                     style: TextStyle(
                                         fontSize: 14.sp,
                                         fontWeight: FontWeight.bold,
@@ -125,7 +125,7 @@ class LoginScreen extends StatelessWidget {
                                           .trim()
                                           .isEmpty) {
                                     ToastM.show(
-                                        "The email or password is empty");
+                                        "الايميل او الرقم السري فارغ");
                                   } else {
                                     Navigator.of(context).push(MaterialPageRoute(builder: (context) => const BottomNavigationBarScreen()));
                                   }
@@ -139,7 +139,7 @@ class LoginScreen extends StatelessWidget {
 
                             Padding(
                               padding: const EdgeInsets.all(16),
-                              child: Text("Forgot The Password ?",
+                              child: Text("هل نسيت كلمه المرور ؟",
                                   style: TextStyle(
                                       fontSize: 12.sp,
                                       color: Colors.grey[400])),
@@ -155,7 +155,7 @@ class LoginScreen extends StatelessWidget {
                               child: ElevatedButton.icon(
                                   onPressed: () {},
                                   icon: const Icon(Icons.facebook_outlined),
-                                  label: const Text("Facebook")),
+                                  label: const Text("فيسبوك")),
                             ),
                           ],
                         ),
